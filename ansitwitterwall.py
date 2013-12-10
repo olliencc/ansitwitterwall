@@ -96,10 +96,10 @@ while True:
 				padtweet += len("@tweet"+str(count)+"@")
 				if user:
 					padtweet -= len(tweets[count-1]['text'].encode('ascii','ignore'))
-					newline = newline.replace("@tweet"+str(count)+"@",tweets[count-1]['text'].encode('ascii','ignore') + " "*padtweet)
+					newline = newline.replace("@tweet"+str(count)+"@",tweets[count-1]['text'].encode('ascii','ignore').replace("\n", " ") + " "*padtweet)
 				else:
 					padtweet -= len(tweets['statuses'][count-1]['text'].encode('ascii','ignore'))
-					newline = newline.replace("@tweet"+str(count)+"@",tweets['statuses'][count-1]['text'].encode('ascii','ignore') + " "*padtweet)			
+					newline = newline.replace("@tweet"+str(count)+"@",tweets['statuses'][count-1]['text'].encode('ascii','ignore').replace("\n", " ") + " "*padtweet)			
 	
 			if "@peep" in newline:
 				if user:
